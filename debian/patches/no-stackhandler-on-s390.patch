@@ -1,0 +1,12 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -869,6 +869,9 @@ AC_CACHE_CHECK([if the system supports catching stack overflow],
+         ;;
+     esac
+   fi
++  case "$host_cpu" in
++    *s390*) sv_cv_have_stack_overflow_recovery=no ;;
++  esac
+   if test $sv_cv_have_stack_overflow_recovery = maybe; then
+     if test -n "$CFG_FAULT"; then
+       AC_EGREP_CPP([xyzzy], [

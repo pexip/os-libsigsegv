@@ -1,0 +1,18 @@
+Description: adjust ss.ss_size = SIGSTKSZ if smaller
+Author: unknown
+Origin: unknown
+Forwarded: will do
+
+
+--- libsigsegv.orig/src/handler-unix.c
++++ libsigsegv/src/handler-unix.c
+@@ -499,6 +499,9 @@
+     ss.ss_sp = extra_stack;
+     ss.ss_size = extra_stack_size;
+ #endif
++    if (ss.ss_size < SIGSTKSZ) 
++      ss.ss_size = SIGSTKSZ;
++
+     ss.ss_flags = 0; /* no SS_DISABLE */
+     if (sigaltstack (&ss, (stack_t*)0) < 0)
+       return -1;
