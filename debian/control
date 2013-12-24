@@ -1,9 +1,10 @@
 Source: libsigsegv
 Section: libdevel
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian Common Lisp Team <pkg-common-lisp-devel@lists.alioth.debian.org>
-Uploaders: Peter Van Eynde <pvaneynd@debian.org>,
+XSBC-Pexip-Original-Uploaders: Peter Van Eynde <pvaneynd@debian.org>,
  Luca Capello <luca@pca.it>,
  Christoph Egger <christoph@debian.org>
 Build-Depends: debhelper (>> 7), autotools-dev, autoconf, automake
@@ -12,6 +13,7 @@ Standards-Version: 3.9.1
 Homepage: http://libsigsegv.sourceforge.net/
 Vcs-Git: http://git.debian.org/git/pkg-common-lisp/libsigsegv.git
 Vcs-Browser: http://git.debian.org/?p=pkg-common-lisp/libsigsegv.git;a=summary
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: libsigsegv2
 Section: libs
