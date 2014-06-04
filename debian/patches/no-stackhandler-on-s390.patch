@@ -1,6 +1,8 @@
---- a/configure.ac
-+++ b/configure.ac
-@@ -869,6 +869,9 @@ AC_CACHE_CHECK([if the system supports catching stack overflow],
+Index: libsigsegv/configure.ac
+===================================================================
+--- libsigsegv.orig/configure.ac	2011-07-26 15:19:06.000000000 +0200
++++ libsigsegv/configure.ac	2011-07-26 15:19:06.000000000 +0200
+@@ -878,6 +878,9 @@
          ;;
      esac
    fi

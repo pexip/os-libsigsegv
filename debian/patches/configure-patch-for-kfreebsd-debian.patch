@@ -6,8 +6,10 @@ Forwarded: not-needed
 
 
 
---- libsigsegv.orig/configure.ac
-+++ libsigsegv/configure.ac
+Index: libsigsegv/configure.ac
+===================================================================
+--- libsigsegv.orig/configure.ac	2011-07-26 15:13:10.000000000 +0200
++++ libsigsegv/configure.ac	2011-07-26 15:19:18.000000000 +0200
 @@ -91,7 +91,7 @@
  dnl List of signals that are sent when an invalid virtual memory address
  dnl is accessed, or when the stack overflows.
@@ -35,8 +37,8 @@ Forwarded: not-needed
    [],
    [int sig, int code, struct sigcontext *scp, void *addr],
    [addr])
-@@ -666,7 +666,10 @@
-   esac
+@@ -672,7 +672,10 @@
+   CFG_STACKVMA=stackvma-mquery.c
  fi
  if test -z "$CFG_STACKVMA" && test $ac_cv_func_mincore = yes; then
 -  CFG_STACKVMA=stackvma-mincore.c
@@ -47,7 +49,7 @@ Forwarded: not-needed
  fi
  if test -n "$CFG_STACKVMA"; then
    AC_DEFINE([HAVE_STACKVMA], [1],
-@@ -710,7 +713,7 @@
+@@ -716,7 +719,7 @@
  dnl FIXME: Put in some more known values into the third argument.
  SV_TRY_LEAVE_HANDLER_LONGJMP([ and sigaltstack],
    sv_cv_leave_handler_longjmp_sigaltstack,
@@ -56,7 +58,7 @@ Forwarded: not-needed
    [
  #ifndef SS_ONSTACK
  #define SS_ONSTACK SA_ONSTACK
-@@ -768,7 +771,7 @@
+@@ -774,7 +777,7 @@
  dnl FIXME: Put in some more known values into the third argument.
  SV_TRY_LEAVE_HANDLER_SIGLONGJMP([ and sigaltstack],
    sv_cv_leave_handler_siglongjmp_sigaltstack,

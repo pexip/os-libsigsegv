@@ -7,7 +7,7 @@ libsigsegv.so.2 libsigsegv2 #MINVER#
  sigsegv_install_handler@Base 2.9
  sigsegv_leave_handler@Base 2.9
  sigsegv_register@Base 2.9
- sigsegv_reset_onstack_flag@Base 2.9
+ (arch=!hurd-i386)sigsegv_reset_onstack_flag@Base 2.9
  sigsegv_unregister@Base 2.9
  stackoverflow_deinstall_handler@Base 2.9
  stackoverflow_install_handler@Base 2.9

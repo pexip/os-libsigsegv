@@ -1,0 +1,10 @@
+build-aux/config.guess
+build-aux/config.sub
+build-aux/install-sh
+build-aux/missing
+Makefile.in
+aclocal.m4
+config.h.in
+configure
+src/Makefile.in
+tests/Makefile.in

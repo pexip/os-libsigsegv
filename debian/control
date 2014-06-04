@@ -1,21 +1,26 @@
 Source: libsigsegv
 Section: libdevel
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian Common Lisp Team <pkg-common-lisp-devel@lists.alioth.debian.org>
+Maintainer: Debian Common Lisp Team <pkg-common-lisp-devel@lists.alioth.debian.org>
 Uploaders: Peter Van Eynde <pvaneynd@debian.org>,
  Luca Capello <luca@pca.it>,
  Christoph Egger <christoph@debian.org>
-Build-Depends: debhelper (>> 7), autotools-dev, autoconf, automake
+Build-Depends: debhelper (>> 9~),
+ autotools-dev,
+ autoconf,
+ automake,
+ dh-autoreconf
 Build-Conflicts: autoconf2.13, automake1.4
-Standards-Version: 3.9.1
+Standards-Version: 3.9.5
 Homepage: http://libsigsegv.sourceforge.net/
 Vcs-Git: http://git.debian.org/git/pkg-common-lisp/libsigsegv.git
 Vcs-Browser: http://git.debian.org/?p=pkg-common-lisp/libsigsegv.git;a=summary
 
 Package: libsigsegv2
 Section: libs
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
 Architecture: any
 Description: Library for handling page faults in a portable way
  GNU libsigsegv is a library that allows handling page faults in a
@@ -26,6 +31,7 @@ Description: Library for handling page faults in a portable way
 
 Package: libsigsegv-dev
 Depends: libsigsegv2 (= ${binary:Version}), ${misc:Depends}
+Multi-Arch: same
 Architecture: any
 Description: Library for handling page faults in a portable way development package
  GNU libsigsegv is a library that allows handling page faults in a
