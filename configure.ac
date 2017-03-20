@@ -1,7 +1,7 @@
 dnl Autoconf configuration for libsigsegv.
 dnl Process this file with autoconf to produce a configure script.
 dnl
-dnl Copyright (C) 2002-2010  Bruno Haible <bruno@clisp.org>
+dnl Copyright (C) 2002-2011  Bruno Haible <bruno@clisp.org>
 dnl
 dnl This program is free software; you can redistribute it and/or modify
 dnl it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ RSE_BOLD
 
 { echo; echo "${term_bold}Build Tools:${term_norm}"; } >& AS_MESSAGE_FD
 
-AM_INIT_AUTOMAKE([libsigsegv], [2.9])
+AM_INIT_AUTOMAKE([libsigsegv], [2.10])
 AM_CONFIG_HEADER([config.h])
 
 dnl Override automake's tar command used for creating distributions.
@@ -653,7 +653,7 @@ AC_CACHE_CHECK([for PIOCMAP in sys/procfs.h], [sv_cv_procfsvma], [
     [int x = PIOCNMAP + PIOCMAP; prmap_t y;],
     [sv_cv_procfsvma=yes], [sv_cv_procfsvma=no])
 ])
-AC_CHECK_FUNCS([mincore])
+AC_CHECK_FUNCS([mquery mincore])
 CFG_STACKVMA=
 if test $sv_cv_procfsvma = yes; then
   CFG_STACKVMA=stackvma-procfs.c
@@ -661,9 +661,15 @@ else
   case "$host_os" in
     linux*)                CFG_STACKVMA=stackvma-linux.c ;;
     freebsd* | dragonfly*) CFG_STACKVMA=stackvma-freebsd.c ;;
+    netbsd*)               CFG_STACKVMA=stackvma-netbsd.c ;;
     beos*)                 CFG_STACKVMA=stackvma-beos.c ;;
     macos* | darwin*)      CFG_STACKVMA=stackvma-mach.c ;;
   esac
+fi
+dnl We prefer the mquery based approach over the mincore based approach,
+dnl because stackvma-mincore.c:is_unmapped() has a bad worst-case runtime.
+if test -z "$CFG_STACKVMA" && test $ac_cv_func_mquery = yes; then
+  CFG_STACKVMA=stackvma-mquery.c
 fi
 if test -z "$CFG_STACKVMA" && test $ac_cv_func_mincore = yes; then
   CFG_STACKVMA=stackvma-mincore.c
