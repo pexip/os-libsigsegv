@@ -13,7 +13,7 @@ Standards-Version: 3.9.1
 Homepage: http://libsigsegv.sourceforge.net/
 Vcs-Git: http://git.debian.org/git/pkg-common-lisp/libsigsegv.git
 Vcs-Browser: http://git.debian.org/?p=pkg-common-lisp/libsigsegv.git;a=summary
-XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: libsigsegv2
 Section: libs
@@ -35,4 +35,3 @@ Description: Library for handling page faults in a portable way development pack
  and stack overflow handlers.
  .
  This package contains the libsigsegv development files.
- 
