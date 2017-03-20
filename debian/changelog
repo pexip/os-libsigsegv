@@ -1,38 +1,44 @@
-libsigsegv (2.9-4ubuntu2pexip1) pexip; urgency=low
+libsigsegv (2.10-4pexip1) pexip; urgency=low
 
-  * Prepare Pexip packaging
+  * Migrate to Jessie
 
- -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 21:58:40 +0000
+ -- John-Mark Bell <jmb@pexip.com>  Mon, 20 Mar 2017 22:24:36 +0000
 
-libsigsegv (2.9-4ubuntu2) oneiric; urgency=low
+libsigsegv (2.10-4) unstable; urgency=medium
 
-  * debian/libsigsegv2.symbols:
-    - Fix typo, thanks debfx
+  * Adopt symbol file for hurd
+  * Include 2.9-4 (fixes clisp on kfreebsd-*):
+      Disable SIGSTKSZ-adjust.patch as it's need is not clear and it at
+      least breaks the clisp build on kfreebsd-i386
+  * Bump standar version
 
- -- Michael Terry <mterry@ubuntu.com>  Tue, 09 Aug 2011 11:47:39 -0400
+ -- Christoph Egger <christoph@debian.org>  Wed, 04 Jun 2014 20:06:54 +0200
 
-libsigsegv (2.9-4ubuntu1) oneiric; urgency=low
+libsigsegv (2.10-2) unstable; urgency=low
 
-  * debian/libsigsegv2.symbols:
-    - Add symbols file
+  * Upload to unstable
+  * Update to use dh style rules file
+  * Enable multiarch (Closes: #695861)
+  * Import symbols file (Closes: #635921)
+  * Make sure config.* gets updated (via debhelper addon) (Closes: #533680)
 
- -- Michael Terry <mterry@ubuntu.com>  Fri, 29 Jul 2011 11:40:11 -0400
+ -- Christoph Egger <christoph@debian.org>  Tue, 02 Jul 2013 20:26:56 +0200
 
-libsigsegv (2.9-4) unstable; urgency=low
+libsigsegv (2.10-1) experimental; urgency=low
 
-  * Disable SIGSTKSZ-adjust.patch as it's need is not clear and it at
-    least breaks the clisp build on kfreebsd-i386
+  * refresh patches
+  * Import new upstream Version signed by F059B1D1
 
- -- Christoph Egger <christoph@debian.org>  Fri, 08 Apr 2011 23:24:36 +0200
+ -- Christoph Egger <christoph@debian.org>  Tue, 26 Jul 2011 15:15:56 +0200
 
-libsigsegv (2.9-3) unstable; urgency=low
+libsigsegv (2.9-2) unstable; urgency=low
 
   * Disable stackhandler on s390 as it doesn't work right now and
     workarounds break at least clisp
 
  -- Christoph Egger <christoph@debian.org>  Sun, 13 Mar 2011 13:59:14 +0100
 
-libsigsegv (2.9-2) unstable; urgency=low
+libsigsegv (2.9-1.1) unstable; urgency=low
 
   * Install shared library again (Closes: #616576)
   * Add myself to uploaders
